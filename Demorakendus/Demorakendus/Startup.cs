@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Routing;
 
 namespace Demorakendus
 {
@@ -37,6 +38,7 @@ namespace Demorakendus
 
             app.UseRouting();
             app.UseMvcWithDefaultRoute();
+            app.UseMvc(ConfigureRoute);
 
             /*
             app.UseFileServer();
@@ -46,6 +48,11 @@ namespace Demorakendus
                
             });
             */
+        }
+
+        private void ConfigureRoute(IRouteBuilder routeBuilder)
+        {
+            routeBuilder.MapRoute("Default", "{controller = Home}/{action = Index}/{id?}");
         }
     }
 }
