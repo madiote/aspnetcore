@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Demorakendus.Controllers
 {
-    public class UserController
+    public class UserController : Controller
     {
-        public ObjectResult Index()
+        public ViewResult Index()
         {
             var user = new User
             { 
@@ -17,7 +17,7 @@ namespace Demorakendus.Controllers
                 FirstName = "John",
                 LastName = "Smith"
             };
-            return new ObjectResult(user);
+            return View(user);
         }
     }
 }
