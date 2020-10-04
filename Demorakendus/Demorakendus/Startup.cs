@@ -24,6 +24,7 @@ namespace Demorakendus
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllers(options => options.EnableEndpointRouting = false);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,13 +36,16 @@ namespace Demorakendus
             }
 
             app.UseRouting();
+            app.UseMvcWithDefaultRoute();
 
+            /*
             app.UseFileServer();
-
+            
             app.UseEndpoints(endpoints =>
             {
-                
+               
             });
+            */
         }
     }
 }
