@@ -36,13 +36,11 @@ namespace Demorakendus
 
             app.UseRouting();
 
+            app.UseFileServer();
+
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    var muutuja = Configuration["MinuMuutuja"];
-                    await context.Response.WriteAsync("Tere maailm! " + muutuja);
-                });
+                
             });
         }
     }
